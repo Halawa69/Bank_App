@@ -1,3 +1,6 @@
+import 'package:firstapp/first_page.dart';
+import 'package:firstapp/fourth_page.dart';
+import 'package:firstapp/third_page.dart';
 import 'package:flutter/material.dart';
 
 class SecondPage extends StatefulWidget {
@@ -8,14 +11,6 @@ class SecondPage extends StatefulWidget {
 }
 
 class _SecondPageState extends State<SecondPage> {
-  int _selectedIndex = 1; // Set the initially selected index
-
-  void _onItemTapped(int index) {
-    setState(() {
-      _selectedIndex = index;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -41,7 +36,7 @@ class _SecondPageState extends State<SecondPage> {
                       'Transfer',
                       style: TextStyle(
                         color: Colors.black,
-                        fontFamily: 'Rublik',
+                        fontFamily: 'Rubik', // Corrected font name
                         fontSize: 18.0,
                         fontWeight: FontWeight.w500,
                       ),
@@ -391,110 +386,6 @@ class _SecondPageState extends State<SecondPage> {
             ),
           ),
         ],
-      ),
-      bottomNavigationBar: Container(
-        width: 375,
-        height: 82,
-        decoration: BoxDecoration(
-          color: Colors.white, // Set the background color to white
-          borderRadius: const BorderRadius.only(
-            bottomLeft: Radius.circular(15.0),
-            bottomRight: Radius.circular(15.0),
-          ),
-          boxShadow: [
-            BoxShadow(
-              color: Colors.black.withOpacity(0.2),
-              spreadRadius: 5,
-              blurRadius: 7,
-              offset: const Offset(0, 3), // changes position of shadow
-            ),
-          ],
-        ),
-        child: ClipRRect(
-          borderRadius: const BorderRadius.only(
-            bottomLeft: Radius.circular(15.0),
-            bottomRight: Radius.circular(15.0),
-          ),
-          child: BottomNavigationBar(
-            backgroundColor: Colors.white,
-            selectedItemColor: const Color(0xFF133FDB), // Selected item color
-            unselectedItemColor: Colors.grey, // Unselected item color
-            selectedLabelStyle: const TextStyle(
-              color: Color(0xFF133FDB), // Selected label color
-              fontWeight: FontWeight.bold,
-            ),
-            unselectedLabelStyle: const TextStyle(
-              color: Colors.grey, // Unselected label color
-            ),
-            type: BottomNavigationBarType.fixed,
-            currentIndex: _selectedIndex,
-            onTap: _onItemTapped,
-            items: [
-              BottomNavigationBarItem(
-                icon: _selectedIndex == 0
-                    ? const GradientIcon(Icons.credit_card, size: 30.0, gradient: LinearGradient(
-                  colors: [Color(0xFF133FDB), Color(0x4DFFC0CB)],
-                  begin: Alignment.topLeft,
-                  end: Alignment.bottomRight,
-                ))
-                    : const Icon(Icons.credit_card, size: 30.0),
-                label: 'Cards',
-              ),
-              BottomNavigationBarItem(
-                icon: _selectedIndex == 1
-                    ? const GradientIcon(Icons.send, size: 30.0, gradient: LinearGradient(
-                  colors: [Color(0xFF133FDB), Color(0x4DFFC0CB)],
-                  begin: Alignment.topLeft,
-                  end: Alignment.bottomRight,
-                ))
-                    : const Icon(Icons.send, size: 30.0),
-                label: 'Transfer',
-              ),
-              BottomNavigationBarItem(
-                icon: _selectedIndex == 2
-                    ? const GradientIcon(Icons.bar_chart, size: 30.0, gradient: LinearGradient(
-                  colors: [Color(0xFF133FDB), Color(0x4DFFC0CB)],
-                  begin: Alignment.topLeft,
-                  end: Alignment.bottomRight,
-                ))
-                    : const Icon(Icons.bar_chart, size: 30.0),
-                label: 'Chart',
-              ),
-              BottomNavigationBarItem(
-                icon: _selectedIndex == 3
-                    ? const GradientIcon(Icons.more_horiz, size: 30.0, gradient: LinearGradient(
-                  colors: [Color(0xFF133FDB), Color(0x4DFFC0CB)],
-                  begin: Alignment.topLeft,
-                  end: Alignment.bottomRight,
-                ))
-                    : const Icon(Icons.more_horiz, size: 30.0),
-                label: 'More',
-              ),
-            ],
-          ),
-        ),
-      ),
-    );
-  }
-}
-
-class GradientIcon extends StatelessWidget {
-  final IconData icon;
-  final double size;
-  final LinearGradient gradient;
-
-  const GradientIcon(this.icon, {required this.size, required this.gradient, super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return ShaderMask(
-      shaderCallback: (bounds) {
-        return gradient.createShader(bounds);
-      },
-      child: Icon(
-        icon,
-        size: size,
-        color: Colors.white, // Icon color
       ),
     );
   }

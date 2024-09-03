@@ -1,3 +1,4 @@
+
 import 'package:flutter/material.dart';
 
 class FirstPage extends StatefulWidget {
@@ -8,13 +9,6 @@ class FirstPage extends StatefulWidget {
 }
 
 class _FirstPageState extends State<FirstPage> {
-  int _selectedIndex = 0; // Initial selected index
-
-  void _onItemTapped(int index) {
-    setState(() {
-      _selectedIndex = index;
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +16,6 @@ class _FirstPageState extends State<FirstPage> {
       backgroundColor: const Color.fromRGBO(245, 245, 245, 1),
       body: Stack(
         children: <Widget>[
-          // Circular shape in the background
           Positioned(
             top: -74, // Adjust the position as needed
             left: 251, // Adjust the position as needed
@@ -89,7 +82,7 @@ class _FirstPageState extends State<FirstPage> {
                 const SizedBox(height: 50),
                 Center(
                   child: Container(
-                    width: 327,
+                    width: 350,
                     padding: const EdgeInsets.all(16.0),
                     decoration: BoxDecoration(
                       color: Colors.white,
@@ -123,7 +116,7 @@ class _FirstPageState extends State<FirstPage> {
                 ),
                 Center(
                   child: Container(
-                    width: 327,
+                    width: 350,
                     padding: const EdgeInsets.all(16.0),
                     decoration: const BoxDecoration(
                       gradient: LinearGradient(
@@ -177,7 +170,7 @@ class _FirstPageState extends State<FirstPage> {
                 ),
                 Center(
                   child: Container(
-                    width: 327,
+                    width: 350,
                     padding: const EdgeInsets.all(16.0),
                     decoration: BoxDecoration(
                       color: Colors.white,
@@ -226,7 +219,7 @@ class _FirstPageState extends State<FirstPage> {
                 const SizedBox(height: 16.0),
                 Center(
                   child: Container(
-                    width: 327,
+                    width: 350,
                     padding: const EdgeInsets.all(16.0),
                     decoration: BoxDecoration(
                       color: Colors.white,
@@ -275,7 +268,7 @@ class _FirstPageState extends State<FirstPage> {
                 const SizedBox(height: 16.0),
                 Center(
                   child: Container(
-                    width: 327,
+                    width: 350,
                     padding: const EdgeInsets.all(16.0),
                     decoration: BoxDecoration(
                       color: Colors.white,
@@ -324,7 +317,7 @@ class _FirstPageState extends State<FirstPage> {
                 const SizedBox(height: 16.0),
                 Center(
                   child: Container(
-                    width: 327,
+                    width: 350,
                     padding: const EdgeInsets.all(16.0),
                     decoration: BoxDecoration(
                       color: Colors.white,
@@ -370,114 +363,59 @@ class _FirstPageState extends State<FirstPage> {
                     ),
                   ),
                 ),
+                const SizedBox(height: 16.0),
+                Center(
+                  child: Container(
+                    width: 350,
+                    padding: const EdgeInsets.all(10.0),
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(8.0),
+                    ),
+                    child: const Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: <Widget>[
+                            Text(
+                              'Spotify',
+                              style: TextStyle(
+                                color: Colors.black,
+                                fontFamily: 'Rubik',
+                                fontSize: 16.0,
+                                fontWeight: FontWeight.w500,
+                              ),
+                            ),
+                            Text(
+                              '\$8.99',
+                              style: TextStyle(
+                                color: Colors.black,
+                                fontFamily: 'Rubik',
+                                fontSize: 16.0,
+                                fontWeight: FontWeight.w500,
+                              ),
+                            ),
+                          ],
+                        ),
+                        SizedBox(height: 5.0),
+                        Text(
+                          'Mon 11.03.2021',
+                          style: TextStyle(
+                            color: Color.fromARGB(133, 133, 133, 1),
+                            fontFamily: 'Rubik',
+                            fontSize: 14.0,
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
               ],
             ),
           ),
         ],
-      ),
-      bottomNavigationBar: Container(
-        width: double.infinity,
-        height: 82,
-        decoration: BoxDecoration(
-          color: Colors.white, // Set the background color to white
-          borderRadius: const BorderRadius.only(
-            bottomLeft: Radius.circular(15.0),
-            bottomRight: Radius.circular(15.0),
-          ),
-          boxShadow: [
-            BoxShadow(
-              color: Colors.black.withOpacity(0.2),
-              spreadRadius: 5,
-              blurRadius: 7,
-              offset: const Offset(0, 3), // changes position of shadow
-            ),
-          ],
-        ),
-        child: ClipRRect(
-          borderRadius: const BorderRadius.only(
-            bottomLeft: Radius.circular(15.0),
-            bottomRight: Radius.circular(15.0),
-          ),
-          child: BottomNavigationBar(
-            backgroundColor: Colors.white,
-            unselectedItemColor: Colors.grey, // Unselected item color
-            selectedItemColor: const Color(0xFF133FDB), // Selected item color
-            selectedLabelStyle: const TextStyle(
-              color: Color(0xFF133FDB), // Selected label color
-              fontWeight: FontWeight.bold,
-            ),
-            unselectedLabelStyle: const TextStyle(
-              color: Colors.grey, // Unselected label color
-            ),
-            type: BottomNavigationBarType.fixed,
-            currentIndex: _selectedIndex,
-            onTap: _onItemTapped,
-            items: [
-              BottomNavigationBarItem(
-                icon: _selectedIndex == 0
-                    ? const GradientIcon(Icons.credit_card, size: 30.0, gradient: LinearGradient(
-                  colors: [Color(0xFF133FDB), Color(0x4DFFC0CB)],
-                  begin: Alignment.topLeft,
-                  end: Alignment.bottomRight,
-                ))
-                    : const Icon(Icons.credit_card, size: 30.0),
-                label: 'Cards',
-              ),
-              BottomNavigationBarItem(
-                icon: _selectedIndex == 1
-                    ? const GradientIcon(Icons.send, size: 30.0, gradient: LinearGradient(
-                  colors: [Color(0xFF133FDB), Color(0x4DFFC0CB)],
-                  begin: Alignment.topLeft,
-                  end: Alignment.bottomRight,
-                ))
-                    : const Icon(Icons.send, size: 30.0),
-                label: 'Transfer',
-              ),
-              BottomNavigationBarItem(
-                icon: _selectedIndex == 2
-                    ? const GradientIcon(Icons.bar_chart, size: 30.0, gradient: LinearGradient(
-                  colors: [Color(0xFF133FDB), Color(0x4DFFC0CB)],
-                  begin: Alignment.topLeft,
-                  end: Alignment.bottomRight,
-                ))
-                    : const Icon(Icons.bar_chart, size: 30.0),
-                label: 'Chart',
-              ),
-              BottomNavigationBarItem(
-                icon: _selectedIndex == 3
-                    ? const GradientIcon(Icons.more_horiz, size: 30.0, gradient: LinearGradient(
-                  colors: [Color(0xFF133FDB), Color(0x4DFFC0CB)],
-                  begin: Alignment.topLeft,
-                  end: Alignment.bottomRight,
-                ))
-                    : const Icon(Icons.more_horiz, size: 30.0),
-                label: 'More',
-              ),
-            ],
-          ),
-        ),
-      ),
-    );
-  }
-}
-
-class GradientIcon extends StatelessWidget {
-  final IconData icon;
-  final double size;
-  final LinearGradient gradient;
-
-  const GradientIcon(this.icon, {required this.size, required this.gradient, super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return ShaderMask(
-      shaderCallback: (bounds) {
-        return gradient.createShader(bounds);
-      },
-      child: Icon(
-        icon,
-        size: size,
-        color: Colors.white, // Icon color
       ),
     );
   }
