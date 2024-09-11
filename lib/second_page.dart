@@ -15,7 +15,8 @@ class _SecondPageState extends State<SecondPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color.fromRGBO(245, 245, 245, 1),
-      body: Stack(
+      body: SingleChildScrollView(
+        child: Stack(
         children: <Widget>[
           Padding(
             padding: const EdgeInsets.fromLTRB(24.0, 63.0, 24.0, 0.0),
@@ -373,20 +374,21 @@ class _SecondPageState extends State<SecondPage> {
                                 style: TextStyle(
                                   color: Colors.grey,
                                   fontSize: 14.0,
+                                  ),
                                 ),
-                              ),
-                            ],
-                          ),
-                        ],
+                              ],
+                            ),
+                          ],
+                        ),
                       ),
                     ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
-          ),
-        ],
-      ),
+          ],
+        ),
+      )
     );
   }
 }

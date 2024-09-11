@@ -32,6 +32,8 @@ dependencies:
     sdk: flutter
   fl_chart: ^0.69.0
   animated_login: ^1.7.2
+  http: ^1.2.2
+
 
 
   # The following adds the Cupertino Icons font to your application.

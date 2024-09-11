@@ -22,10 +22,16 @@ class _FourthpageState extends State<Fourthpage> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
-              const Icon(
-                Icons.arrow_back,
-                size: 28.0,
-                color: Color.fromRGBO(133, 133, 133, 1),
+              GestureDetector(
+                onTap: () {
+                  // Navigate back when 'arrow_back' is tapped
+                  Navigator.pop(context);
+                },
+                child: const Icon(
+                  Icons.arrow_back,
+                  size: 28.0,
+                  color: Color.fromRGBO(133, 133, 133, 1),
+                ),
               ),
               const SizedBox(height: 14),
               const Row(
