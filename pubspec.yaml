@@ -33,6 +33,7 @@ dependencies:
   fl_chart: ^0.69.0
   animated_login: ^1.7.2
   http: ^1.2.2
+  shared_preferences: ^2.0.15
 
 
 

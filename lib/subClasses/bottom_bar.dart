@@ -1,7 +1,7 @@
-import 'package:firstapp/first_page.dart';
-import 'package:firstapp/fourth_page.dart';
-import 'package:firstapp/second_page.dart';
-import 'package:firstapp/third_page.dart';
+import 'package:firstapp/uiPages/card.dart';
+import 'package:firstapp/uiPages/moreTransaction.dart';
+import 'package:firstapp/uiPages/transaction.dart';
+import 'package:firstapp/uiPages/chart.dart';
 import 'package:flutter/material.dart';
 
 class BottomBar extends StatefulWidget {

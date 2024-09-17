@@ -1,13 +1,15 @@
-import 'package:firstapp/bottom_bar.dart';
-import 'package:firstapp/intro_one.dart';
-import 'package:firstapp/sign.dart';
-import 'package:firstapp/login.dart';
+import 'package:firstapp/subClasses/bottom_bar.dart';
+import 'package:firstapp/uiPages/intro_one.dart';
+import 'package:firstapp/uiPages/sign.dart';
+import 'package:firstapp/uiPages/login.dart';
 import 'package:flutter/material.dart';
+
+import 'uiPages/more_page.dart';
 
 void main() => runApp(
   MaterialApp(
-    home: const IntroOne(), // Set IntroOne as the initial screen
-    debugShowCheckedModeBanner: false, // Disable debug banner
+    home:  const IntroOne(),
+    debugShowCheckedModeBanner: false,
     routes: {
       SignUp.routeName: (context) => const SignUp(),
       IntroOne.routeNamed: (context) => const IntroOne(),

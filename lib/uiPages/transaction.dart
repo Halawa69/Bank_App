@@ -1,6 +1,3 @@
-import 'package:firstapp/first_page.dart';
-import 'package:firstapp/fourth_page.dart';
-import 'package:firstapp/third_page.dart';
 import 'package:flutter/material.dart';
 
 class SecondPage extends StatefulWidget {

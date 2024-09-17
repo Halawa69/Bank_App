@@ -1,4 +1,4 @@
-import 'package:firstapp/slide_model.dart';
+import 'package:firstapp/subClasses/slide_model.dart';
 import 'package:flutter/material.dart';
 
 class SliderItem extends StatefulWidget {

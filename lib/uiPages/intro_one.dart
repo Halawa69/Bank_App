@@ -1,7 +1,7 @@
-import 'package:firstapp/sign.dart';
-import 'package:firstapp/slide_model.dart';
-import 'package:firstapp/slider_item.dart';
-import 'package:firstapp/sign.dart';
+import 'package:firstapp/uiPages/sign.dart';
+import 'package:firstapp/subClasses/slide_model.dart';
+import 'package:firstapp/subClasses/slider_item.dart';
+import 'package:firstapp/uiPages/sign.dart';
 import 'package:flutter/material.dart';
 
 class IntroOne extends StatefulWidget {
@@ -77,7 +77,7 @@ class DotIndicator extends StatelessWidget {
   final int currentIndex;
   final int totalDots;
 
-  const DotIndicator({
+  const DotIndicator({super.key, 
     required this.currentIndex,
     required this.totalDots,
   });

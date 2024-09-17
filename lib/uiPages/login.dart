@@ -1,12 +1,10 @@
 import 'dart:developer';
-
-import 'package:firstapp/bottom_bar.dart';
+import 'package:firstapp/subClasses/bottom_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/gestures.dart';
-import 'package:firstapp/sign.dart';
-import 'login_controller.dart';
-import 'login_model.dart';
-
+import 'package:firstapp/uiPages/sign.dart';
+import '../controll/login_controller.dart';
+import '../modelPage/login_model.dart';
 
 class LoginPage extends StatefulWidget {
   static const String rout = '/login';
@@ -21,6 +19,7 @@ class _LoginPageState extends State<LoginPage> {
 
   final TextEditingController _usernameController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -49,7 +48,7 @@ class _LoginPageState extends State<LoginPage> {
               ),
               const SizedBox(height: 30),
 
-              // Sign Up Text
+              // Login Text
               const Text(
                 "Login",
                 style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
@@ -57,11 +56,11 @@ class _LoginPageState extends State<LoginPage> {
 
               const SizedBox(height: 30),
 
-              // Email Address Field
+              // Username Field
               TextField(
-                  controller: _usernameController,
-                  decoration: const InputDecoration(labelText: "Username")
-                ),
+                controller: _usernameController,
+                decoration: const InputDecoration(labelText: "Username"),
+              ),
 
               const SizedBox(height: 20),
 
@@ -84,15 +83,13 @@ class _LoginPageState extends State<LoginPage> {
                 ),
               ),
 
-
-
               const SizedBox(height: 30),
 
               // Login Button
               SizedBox(
                 width: double.infinity,
                 child: ElevatedButton(
-                  onPressed:_onLoginPressed,
+                  onPressed: _onLoginPressed,
                   style: ElevatedButton.styleFrom(
                     padding: const EdgeInsets.symmetric(vertical: 15),
                     shape: RoundedRectangleBorder(
@@ -131,7 +128,7 @@ class _LoginPageState extends State<LoginPage> {
                   InkWell(
                     onTap: () {
                       // Handle Google login
-                      print('Google icon tapped');
+                      log('Google icon tapped');
                     },
                     child: Container(
                       width: 60,
@@ -161,7 +158,7 @@ class _LoginPageState extends State<LoginPage> {
                   InkWell(
                     onTap: () {
                       // Handle Facebook login
-                      print('Facebook icon tapped');
+                      log('Facebook icon tapped');
                     },
                     child: Container(
                       width: 60,
@@ -212,7 +209,6 @@ class _LoginPageState extends State<LoginPage> {
                               context,
                               MaterialPageRoute(builder: (context) => const SignUp()),
                             );
-                            // Navigate to Sign Up page
                           },
                       ),
                     ],
@@ -225,11 +221,14 @@ class _LoginPageState extends State<LoginPage> {
       ),
     );
   }
+
+  // Handle login press
   void _onLoginPressed() async {
     final userLogin = loginmodel(
       username: _usernameController.text,
       password: _passwordController.text,
     );
+
     if (userLogin.username.isEmpty || userLogin.password.isEmpty) {
       // Show error if username or password is empty
       ScaffoldMessenger.of(context).showSnackBar(
@@ -237,20 +236,19 @@ class _LoginPageState extends State<LoginPage> {
       );
       return;
     }
+
     LoginController loginController = LoginController();
-    await loginController.LoginPage(userLogin);
-    log(loginController.loading.value.toString());
-    if(loginController.loading.value){
+    bool loginSuccess = await loginController.LoginPage(userLogin); // Await the result of the login
+
+    if (loginSuccess) {
       Navigator.pushReplacement(
         context,
-        MaterialPageRoute(builder: (context) => const BottomBar()),
+        MaterialPageRoute(builder: (context) => const BottomBar()), // Navigate to the next screen
       );
-    }else{
-        ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(content: Text("login failed username and password")),
-        );
-
+    } else {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text("Login failed. Please check username and password")),
+      );
     }
   }
 }
-

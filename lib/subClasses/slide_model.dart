@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 class SlideModel {
   final String imageUrl;
   final String title;

@@ -1,6 +1,3 @@
-import 'package:firstapp/first_page.dart';
-import 'package:firstapp/fourth_page.dart';
-import 'package:firstapp/second_page.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 

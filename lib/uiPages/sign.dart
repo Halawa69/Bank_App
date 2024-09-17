@@ -1,6 +1,5 @@
-import 'package:firstapp/sign_up_controller.dart';
-import 'package:firstapp/sign_up_controller.dart';
-import 'package:firstapp/sign_up_model.dart';
+import 'package:firstapp/controll/sign_up_controller.dart';
+import 'package:firstapp/modelPage/sign_up_model.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'login.dart';
